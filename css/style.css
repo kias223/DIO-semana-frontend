@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
+
+:root {
+    --primary-color: #cf0f0f;
+    --primary-color-contrast: #ffffff;
+    --field-background-color: #000;
+}
+
+.light-theme {
+--page-background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 65%,
+    rgba(255, 255, 255, 0.75) 100%
+);
+--header-background-color: #e3e3e3;
+--highlight-color: #000000;
+--featured-font-family: "Archivo", sans-serif;
+--character-top-image-src: url(#top_characters_svg);
+--character-top-image-color: #ffffff;
+--character-bottom-image-src: url(#bottom_characters_svg);
+--character-bottom-image-color: #e5e5e5;
+--background-lamp-image: url("../images/backgrounds/lamps.png");
+--footer-background-color: #b5bbbf;
+}
+  
+.dark-theme {
+--page-background: linear-gradient(
+180deg,
+#050000 0%,
+#130404 65%,
+rgba(19, 1, 1, 0.75) 100%
+);
+--header-background-color: #220f0f;
+--highlight-color: #ffffff;
+--featured-font-family: "Rubik Glitch", sans-serif;
+--character-bottom-image-src: url(#top_characters_svg);
+--character-bottom-image-color: rgba(255, 255, 255, 0.1);
+--character-top-image-src: url(#bottom_characters_svg);
+--character-top-image-color: #000;
+--background-lamp-image: url("../images/backgrounds/lamps-inverted.png");
+--footer-background-color: #000;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 1s;
+}
+
+
+.dark-theme button, .dark-theme h1, 
+.dark-theme h2 , .dark-theme h3 {
+    letter-spacing: 5px;
+    font-weight: normal;
+}
+
+.dark-theme .inverted_element {
+    transform: rotatez(180deg) scaleX(-1);
+}
+
+h1, h2, h3 {
+    font-family: var(--featured-font-family);
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+p {
+    color: var(--highlight-color);
+}
+
+p, input, label, textarea {
+    font-family: "Libre Baskerville", serif;
+}
+
+input, textarea {
+    border: 2px solid var(--primary-color-contrast);
+    background-color: var(--field-background-color);
+    color: var(--primary-color-contrast);
+    padding: 8px;
+    margin-bottom: 24px;
+    font-size: 1rem;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    outline: none;
+    border-color: black;
+}
+
+button {
+    padding: 16px 32px;
+    background-color: transparent;
+    font-weight: 900;
+    font-family: var(--featured-font-family);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 1s;
+}
+
+header {
+    background-color: var(--header-background-color);
+    min-height: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+header::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(../images/banner/florest.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 90%;
+    filter: saturate(0);
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.header_content {
+    max-width: 700px;
+    padding: 80px 20px;
+    text-align: center;
+    z-index: 2;
+}
+
+.header_content img {
+    width: 80%;
+}
+
+.header_content p {
+    margin: 30px 0 50px;
+}
+
+.header_content button {
+    border: 3px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.header_content button:hover {
+    background-color: var(--primary-color);
+    color: var(--primary-color-contrast);
+}
+
+.world_characters {
+    top: 65.4%;
+    width: 100%;
+    max-width: 900px;
+    z-index: 3;
+    position: absolute;
+}
+
+#top_characters {
+    height: 100%;
+    background-color: var(--character-top-image-color);
+    clip-path: var(--character-top-image-src);
+}
+
+.dark-theme #top_characters {
+    top: 445px;
+}
+
+#bottom_characters {
+    height: 500px;
+    background-color: var(--character-bottom-image-color);
+    top: -80px;
+    left: 20px;
+    transform: rotateZ(180deg) scaleX(-1);
+    position: relative;
+    clip-path: var(--character-bottom-image-src);
+}
+
+.dark-theme #bottom_characters {
+    top: -200px;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: var(--page-background) no-repeat,
+    url(../images/backgrounds/florest.png) no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 95px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+#section_inverted_world {
+    align-items: center;
+}
+
+.sections_texts {
+    width: 50%;
+}
+
+.sections_texts h2 {
+    max-width: 300px;
+}
+
+#section_stranger_things_trailer .sections_texts {
+    width: 50%;
+    text-align: right;    
+}
+
+#section_stranger_things_trailer .sections_texts h2 {
+    max-width: 425px;
+    display: inline-block;
+}
+
+#section_stranger_things_trailer .video_frame {
+    background-color: var(--primary-color);
+}
+
+#section_stranger_things_trailer .video_frame iframe {
+    position: relative;
+    bottom: 24px;
+    left: 24px;
+    border: 3px solid;
+    border-image: linear-gradient(
+        var(--primary-color),
+        var(--primary-color-contrast)
+    );
+    border-image-slice: 10;
+}
+
+#section_stranger_things_gallery {
+    justify-content: center;
+    width: 100%;
+    background: var(--background-lamp-image) 120% / 50% no-repeat;
+}
+
+#section_stranger_things_gallery .container {
+    width: 100%;
+} 
+
+#section_stranger_things_gallery .container h2 {
+    margin-left: 5%;
+    width: 800px;
+}
+
+#section_stranger_things_gallery .gallery_container {
+    justify-content: center;
+    display: flex;
+    gap: 50px;
+    padding-left: 20px;
+}
+
+#section_stranger_things_gallery .gallery_image {
+    width: 250px;
+    height: 250px;
+    outline: 20px solid var(--highlight-color);
+    border: 3px solid var(--primary-color);
+    box-sizing: initial;
+}
+
+#section_stranger_things_gallery .gallery_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 10px solid var(--highlight-color);
+}
+
+#section_form {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+#section_form h2 {
+    width: 600px;
+}
+
+#section_form .form_content h3 {
+    color: var(--highlight-color);
+    flex-basis: 30%;
+    text-align: center;
+    margin: 0;
+} 
+
+#section_form .form_content h3 span {
+    color: var(--primary-color);
+}
+
+#section_form .form_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#section_form .form_container {
+    flex-basis: 50%;
+    position: relative;
+}
+
+#section_form .form_container::after {
+    content: "";
+    background-color: var(--highlight-color);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: -1;
+}
+
+#section_form .form_container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    background-color: var(--primary-color);
+    color: var(--primary-color-contrast);
+    text-align: left;
+}
+
+#section_form .form_container form button {
+    border: none;
+    background-color: var(--field-background-color);
+    color: var(--primary-color-contrast);
+    max-width: 300px;
+    align-self: center;
+}
+
+
+#section_form .form_container form button:hover {
+    background-color: var(--primary-color-contrast);
+    color: var(--field-background-color);
+}
+
+#msg_sucess p {
+    color: var(--primary-color-contrast);
+    font-size: 25px;
+    padding: 20px 0px;
+    text-align: center;
+}
+
+footer {
+    padding: 60px 0;
+    background-color: var(--footer-background-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+footer p {
+    max-width: 700px;
+    margin-bottom: 24px;
+}
+
+footer::before, footer::after {
+    content: "";
+    width: 300px;
+    height: 200px;
+    background: url("../images/footer/tape.svg") no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: -30px;
+}
+
+footer::before {
+    left: -50px;
+    transform: rotateZ(-10deg);
+}
+
+footer::after {
+    right: -10px;
+    transform: rotateZ(10deg);
+}
+
